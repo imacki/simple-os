@@ -4,7 +4,9 @@ Simple OS / Step 1
 Introduction
 ------------
 
-Step 1 shows how to create and run/test a very simple boot sector, using NASM to assemble and output a raw boot sector and QEMU to load and execute it.
+Step 1 shows how to create and test a very simple boot sector.
+
+Step 1 uses NASM to assemble and output a raw boot sector and QEMU to load and execute it.
 
 Requirements
 ------------
@@ -32,8 +34,8 @@ Explanation
 
 Running step-1 should:
 
-    1.  compile the bootsec0.asm source into a raw boot sector image (bootsec0)
-    2.  open a window with QEMU booting a virtual machine using the bootsector image just created (bootsec0)
+    1.  compile the bootsec0.asm source into a raw boot sector image (bootsec0.img)
+    2.  open a window with QEMU booting a virtual machine using the bootsector image just created (bootsec0.img)
     3.  upon loading, the boot sector should initialize registers, print a message, and then hang (infinite loop)
 
 You should close the window once you have verified that the message "I am the boot sector" was printed on the screen.
