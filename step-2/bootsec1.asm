@@ -27,9 +27,15 @@ start:
     mov di, si
     mov cx, 512/2
     rep movsw
+    mov [message2], cx  ; destroy old message2 to test relocation
     jmp 0x8000:relocated
 
 relocated:
+    mov ax, cs
+    mov ds, ax
+    mov ss, ax
+    mov sp, 0xFFFE
+
     ; print message2 on screen
     mov ax, message2
     call print

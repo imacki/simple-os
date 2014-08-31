@@ -6,7 +6,7 @@
     jmp start
 
 driveno db 0
-message db 'Boot Sector', 13, 10, 0
+message db 'Boot Sector loaded', 13, 10, 0
 warning db 'Error: cannot read diskette', 13, 10, 0
 
 start:
@@ -38,14 +38,14 @@ relocated:
     mov ax, message
     call print
 
-    ; load rest of Cylinder 0 Head 0 (Records 2-18) into 0000:0510
+    ; load rest of Cylinder 0 Head 0 (Records 2-18) into 0000:0600
     mov ax, 0x0211  ; read 17 sectors
     mov cx, 0x0002  ; from cylinder 0 record 2
     mov dh, 0x00    ; head 0 on boot drive
     mov dl, [driveno]
     xor bx, bx
     mov es, bx      ; to segment 0000
-    mov bx, 0x0510  ; offset 0510
+    mov bx, 0x0600  ; offset 0600
     int 0x13
     jc load_error
     or ah, ah
@@ -54,7 +54,7 @@ relocated:
     jz load_error
 
     ; jump to newly loaded code (exit boot sector code)
-    jmp 0x0000:0x0510
+    jmp 0x0000:0x0600
 
 load_error:
     mov ax, warning

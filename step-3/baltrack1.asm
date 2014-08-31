@@ -1,11 +1,11 @@
     bits 16
 
-    ; boot sector loads rest of track 1 into address 0000:0510
-    org 0x0510
+    ; boot sector loads main program (rest of track 1) into address 0000:0600
+    org 0x0600
     
     jmp start
 
-message db 'System loaded', 13, 10, 0
+message db 'Main Program loaded', 13, 10, 0
 
 start:
     ; initialize segment registers and stack
