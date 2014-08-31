@@ -31,6 +31,7 @@ Running step-3 should:
     3.  upon loading, the boot sector code should first initialize registers
     4.  it should then copy the 512 bytes at 0000:7C00 to 8000:7C00, jump into that new location, and print a message
     5.  it should then try to load 17 sectors from cylinder 0 head 0, starting at record 2, into RAM at 0000:0600
+    6.  it should then execute the new program loaded at 0000:0600
 
 You should close the window once you have verified that the messages "Original Boot Sector" and "Relocated Boot Sector" were printed on the screen.
 
